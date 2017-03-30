@@ -44,7 +44,7 @@ public class EntradaConComentarios extends Entrada
             //Se recopilan los comentarios
             cadenaADevolver += "Comentarios:\n";
             for (String comentario : getComentarios()) {
-                cadenaADevolver += comentario + "\n";
+                cadenaADevolver += "<b>"+comentario + "</b>" + "\n";
             }
         }          
         

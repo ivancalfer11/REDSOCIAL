@@ -49,9 +49,9 @@ public class Entrada
         
         cadenaADevolver += "Hace ";
         if (minutosQueHanPasadoDesdeCreacion > 0) {
-            cadenaADevolver += minutosQueHanPasadoDesdeCreacion + " minutos ";
+            cadenaADevolver += "<b>"+minutosQueHanPasadoDesdeCreacion+"<b/>" + " minutos ";
         }
-        cadenaADevolver += segundosResiduales + " segundos"+"<br/>";                
+        cadenaADevolver += "<b>"+segundosResiduales + "</b>" + " segundos"+"<br/>";                
         
         return cadenaADevolver;
     }

@@ -38,8 +38,8 @@ public class EntradaFoto extends EntradaConComentarios
 
         cadenaADevolver += super.toString();
         
-        cadenaADevolver += titulo + "\n";
-        cadenaADevolver += urlImagen + "\n";
+        cadenaADevolver += "<b>" + titulo + "</b>" + "\n";
+        cadenaADevolver +="<b>" + urlImagen + "</b>" + "\n";
        
         return cadenaADevolver;
     }

@@ -97,12 +97,13 @@ public class Muro
 
             archivo.write("<html>");
             archivo.write("<head>");
-            archivo.write("<link rel= \"stylesheet\" type=\"text/css\" href=\"disenio.css\" media=\"screen\"/>");
+            archivo.write("<link rel= \"stylesheet\" type=\"text/css\" href=\"diseniocss.css\" media=\"screen\"/>");
             archivo.write("<h1 color= green align=center>"+"<b>"+"Mi red social"+"</b>"+"</h1>");
-            
+            archivo.write("<img src=facebook.png>");
             archivo.write("</head>");
             archivo.write("<body bgcolor=red background=sfondo.gif>");
             archivo.write("<p align=center>"+toString()+"</p>");
+            
             
             archivo.close();
         }
