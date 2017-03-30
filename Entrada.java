@@ -1,5 +1,5 @@
-import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
 /**
@@ -14,7 +14,6 @@ public class Entrada
     private LocalDateTime momentoPublicacion;
     private int cantidadMeGusta;
 
-    
 
     /**
      * Constructor for objects of class Entrada
@@ -23,39 +22,54 @@ public class Entrada
     {
         usuario = autor;
         momentoPublicacion = LocalDateTime.now();
-        cantidadMeGusta = 0;
-
-
+        cantidadMeGusta = 0;     
     }
-      public void meGusta()
+    
+    public void meGusta()
     {
         cantidadMeGusta++;
-    }
+    }    
     
     
     public LocalDateTime getMomentoPublicacion()
     {
         return momentoPublicacion;
     }
-    
+        
     public String toString()
     {
-        return null ;
+        String cadenaADevolver = "";
+        cadenaADevolver+= "<html>" + "<br/>" + "<head>" + "<br/>" + "<h1>" + "<br/>" + "<br/>" + "</h1>" + "<br/>" + "</head>";
+        cadenaADevolver += "<b>"+"Usuario"+"</b>"+ ":" + getUsuario() + "<br/>";
+        cadenaADevolver += "<b>"+getCantidadMeGusta()+"</b>" + " me gusta" + "<br/>";
+        
+        long segundosQueHanPasadoDesdeCreacion = getMomentoPublicacion().until(LocalDateTime.now(), ChronoUnit.SECONDS);
+        long minutosQueHanPasadoDesdeCreacion = segundosQueHanPasadoDesdeCreacion / 60;
+        long segundosResiduales = segundosQueHanPasadoDesdeCreacion % 60;
+        
+        cadenaADevolver += "Hace ";
+        if (minutosQueHanPasadoDesdeCreacion > 0) {
+            cadenaADevolver += minutosQueHanPasadoDesdeCreacion + " minutos ";
+        }
+        cadenaADevolver += segundosResiduales + " segundos"+"<br/>";                
+        
+        return cadenaADevolver;
     }
     
-    public String getUsuario(){
+    public String getUsuario()
+    {
         return usuario;
-        
     }
-    
-    public int getCantidadMeGusta(){
+
+    public int getCantidadMeGusta()
+    {
         return cantidadMeGusta;
-        
     }
     
-    public void mostrar(){
-        
-        
+    public void mostrar()
+    {
     }
     
+
 }
+

@@ -2,9 +2,12 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.time.temporal.ChronoUnit;
 
+
 public class EntradaTexto extends EntradaConComentarios
 {
-    private String mensaje; 
+    private String mensaje;
+    private String tipoEntrada;
+
 
     /**
      * Constructor for objects of class EntradaTexto
@@ -13,55 +16,43 @@ public class EntradaTexto extends EntradaConComentarios
     {
         super(autor);
         mensaje = texto;
-
-    }
-
-    
-    public void addComentario(String texto)
-    {
-        getComentarios().add(texto);        
+        tipoEntrada = "EntradaTexto";
+        
     }
 
     public String getMensaje()
     {
         return mensaje;
     }
-
+   
+    
     public String toString()
     {
         String cadenaADevolver = "";
-
-        cadenaADevolver += "Usuario: " + getUsuario() ;
-        cadenaADevolver += " " + mensaje ;
-        cadenaADevolver += " " + getCantidadMeGusta() + " me gusta" + "\n";
-
-        long segundosQueHanPasadoDesdeCreacion =getMomentoPublicacion().until(LocalDateTime.now(), ChronoUnit.SECONDS);
-        long minutosQueHanPasadoDesdeCreacion = segundosQueHanPasadoDesdeCreacion / 60;
-        long segundosResiduales = segundosQueHanPasadoDesdeCreacion % 60;
-
-        cadenaADevolver += "Hace ";
-        if (minutosQueHanPasadoDesdeCreacion > 0) {
-            cadenaADevolver += minutosQueHanPasadoDesdeCreacion + " minutos " + "\n";
-        }
-        cadenaADevolver += segundosResiduales + " segundos." + "\n";       
-
-        if (getComentarios().isEmpty()) {
-            cadenaADevolver += "La entrada no tiene comentarios." + "\n";
-        }
-        else {
-            //Se recopilan los comentarios
-            cadenaADevolver += "Comentarios:\n";
-            for (String comentario : getComentarios()) {
-                cadenaADevolver += comentario ;
-            }
-        }   
-
+        
+        cadenaADevolver = super.toString();  
+        
+        cadenaADevolver += "<p>"+"Mensaje"+":"+" "+"<b>"+mensaje+"</b>"+"<p>" + "\n"; 
+        
         return cadenaADevolver;
     }
     
-     public void mostrar()
+ 
+    public void mostrar()
     {
         System.out.println(this);
+    }
+    public int getCantidadDeDatosAsociados()
+    {
+        return 5;
+    }
+     public void mostrarDatosExclusivos()
+    {
+        System.out.println(mensaje);
+    }
+    public String getTipoEntrada()
+    {
+        return tipoEntrada;
     }
 
 }
